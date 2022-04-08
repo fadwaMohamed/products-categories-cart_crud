@@ -4,9 +4,11 @@ let ProductsCrud = {
     GetAll: () => {
         return fetch(URL);
     },
+
     GetById: (id) => {
         return fetch(URL + `/${id}`);
     }, 
+
     Add: (newProduct) => {
         fetch(URL, {
             method: "POST",
@@ -18,7 +20,10 @@ let ProductsCrud = {
         .then((data) => data.json())
         .then((res) => console.log("Saved"))
         .catch((err) => console.log("error"))
+
+        return ProductsCrud.GetAll();
     },
+
     Update: (product) => {
         fetch(URL + `/${product.id}`, {
             method: "PUT",
@@ -28,14 +33,15 @@ let ProductsCrud = {
             body: JSON.stringify(product)
         })
         .then((data) => data.json())
-        .then((res) => console.log("Saved"))
+        .then((res) => console.log("Updated"))
         .catch((err) => console.log("error"))
     },
+    
     Delete: (id) => {
         fetch(URL + `/${id}`, {
             method: "DELETE"
         })
-        .then((res) => console.log("Saved"))
+        .then((res) => console.log("Deleted"))
         .catch((err) => console.log("error"))
     }
 }

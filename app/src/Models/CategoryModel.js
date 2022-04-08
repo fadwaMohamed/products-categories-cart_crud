@@ -20,7 +20,7 @@ let CategoriesCrud = {
         .catch((err) => console.log("error"))
     },
     Update: (category) => {
-        fetch(URL + `/${product.id}`, {
+        fetch(URL + `/${category.id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
