@@ -1,25 +1,9 @@
 {
   "Products": [
     {
-      "id": 123,
-      "name": "ball",
-      "price": 120,
-      "quantity": 20,
-      "image": "../images/1.jpg",
-      "description": "this is my product"
-    },
-    {
-      "id": 213,
-      "name": "guitar",
-      "price": 5000,
-      "quantity": 20,
-      "image": "../images/2.jpg",
-      "description": "gg is my product"
-    },
-    {
       "id": 520,
       "name": "violin",
-      "price": 4500,
+      "price": "22",
       "quantity": 20,
       "image": "../images/3.jpg",
       "description": "this is my product"
@@ -123,24 +107,74 @@
   ],
   "Categories": [
     {
-      "id": 123,
-      "name": "Electronics"
+      "id": 10,
+      "name": "Electronics",
+      "description": "this is new category"
     },
     {
-      "id": 213,
-      "name": "Games"
+      "id": 15,
+      "name": "Mobiles",
+      "description": "this is new category"
     },
     {
-      "id": 520,
-      "name": "Fashion"
+      "id": 15,
+      "name": "Jewellery",
+      "description": "this is new category"
     },
     {
-      "id": 456,
-      "name": "Home"
+      "id": 55,
+      "name": "Books",
+      "description": "this is new category"
     },
     {
-      "id": 320,
-      "name": "Books"
+      "id": 44,
+      "name": "Beauty & Health",
+      "description": "this is new category"
+    },
+    {
+      "id": 42,
+      "name": "Fashion",
+      "description": "this is new category"
+    },
+    {
+      "id": 22,
+      "name": "Toys & games",
+      "description": "this is new category"
+    },
+    {
+      "id": 23,
+      "name": "Sports & Fitness",
+      "description": "this is new category"
+    },
+    {
+      "id": 28,
+      "name": "Supermarket",
+      "description": "this is new category"
+    },
+    {
+      "id": 33,
+      "name": "Baby Products",
+      "description": "this is new category"
+    },
+    {
+      "id": 35,
+      "name": "Music",
+      "description": "this is new category"
+    },
+    {
+      "id": 36,
+      "name": "Computing",
+      "description": "this is new category"
+    },
+    {
+      "id": 88,
+      "name": "Home & Kitchen",
+      "description": "this is new category"
+    },
+    {
+      "id": 90,
+      "name": "Automotive",
+      "description": "this is new category"
     }
   ],
   "Cart": [
