@@ -14,7 +14,7 @@
       "price": 5000,
       "quantity": 20,
       "image": "../images/2.jpg",
-      "description": "this is my product"
+      "description": "gg is my product"
     },
     {
       "id": 520,
@@ -34,6 +34,86 @@
     },
     {
       "id": 320,
+      "name": "ring",
+      "price": 154,
+      "quantity": 20,
+      "image": "../images/5.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 23,
+      "name": "ball",
+      "price": 120,
+      "quantity": 20,
+      "image": "../images/1.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 13,
+      "name": "guitar",
+      "price": 5000,
+      "quantity": 20,
+      "image": "../images/2.jpg",
+      "description": "gg is my product"
+    },
+    {
+      "id": 20,
+      "name": "violin",
+      "price": 4500,
+      "quantity": 20,
+      "image": "../images/3.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 56,
+      "name": "table",
+      "price": 200,
+      "quantity": 20,
+      "image": "../images/4.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 20,
+      "name": "ring",
+      "price": 154,
+      "quantity": 20,
+      "image": "../images/5.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 13,
+      "name": "ball",
+      "price": 120,
+      "quantity": 20,
+      "image": "../images/1.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 23,
+      "name": "guitar",
+      "price": 5000,
+      "quantity": 20,
+      "image": "../images/2.jpg",
+      "description": "gg is my product"
+    },
+    {
+      "id": 50,
+      "name": "violin",
+      "price": 4500,
+      "quantity": 20,
+      "image": "../images/3.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 46,
+      "name": "table",
+      "price": 200,
+      "quantity": 20,
+      "image": "../images/4.jpg",
+      "description": "this is my product"
+    },
+    {
+      "id": 30,
       "name": "ring",
       "price": 154,
       "quantity": 20,

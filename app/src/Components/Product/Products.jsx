@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ListProduct from "./ListProduct";
 import Details from "./ProductDetails";
 import Add from "./ProductAdd";

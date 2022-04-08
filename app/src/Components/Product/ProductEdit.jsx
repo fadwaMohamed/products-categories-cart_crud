@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import React, { cloneElement, useEffect, useState } from "react";
+import { useParams, useNavigate } from 'react-router-dom';
 import productCrud from './../../Models/ProductModel';
-import { LoadingOutlined } from '@ant-design/icons';
-import { Form, Input, Button, message, InputNumber } from 'antd';
+import { LoadingOutlined, UploadOutlined } from '@ant-design/icons';
+import { Form, Input, Button, message, Card } from 'antd';
 
 const layout = {
     labelCol: {
@@ -18,12 +18,18 @@ let EditProduct = () => {
     let {id}  = useParams();
 
     let [product, setProduct] = useState(null);
+    //let [initProduct, setInitProduct] = useState(null);
+
+    let Navigate = useNavigate();
 
     useEffect(() => {
         if(id != undefined) {
             productCrud.GetById(id)
                 .then(data => data.json())
-                .then(json => setProduct(json)
+                .then(res => {
+                    setProduct(JSON.parse(JSON.stringify(res)))
+                    //setInitProduct(JSON.parse(JSON.stringify(res)));
+                }
             );
         }
     }, [id]);
@@ -31,68 +37,140 @@ let EditProduct = () => {
     const [form] = Form.useForm();
 
     const onFinish = () => {
-        message.success('Submit success!');
+        productCrud.Update(product);
+        Navigate("/products");
     };
     
     const onFinishFailed = () => {
         message.error('Submit failed!');
     };
 
-    const onReset = () => {
-        form.resetFields();
-    };
+    /* const onReset = () => {
+        console.log(initProduct)
+        setProduct(initProduct)
+        form.resetFields(); 
+        console.log(product)
+    }; */
+
+    const changeHandler = (e) => {
+        if(e.target.name == "image")
+            setProduct({ ...product, [e.target.name]: e.target.files[0] });
+        else
+            setProduct({ ...product, [e.target.name]: e.target.value });
+    }
 
     if(product) {
         return(
-            <div className="container mt-5">
+            <div className="container mt-2">
 
-                <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}
-                        onFinishFailed={onFinishFailed} >
-                    <Form.Item name="name" label="Product name" rules={[
-                                                                        {
-                                                                            required: true,
-                                                                        },
-                                                                        {
-                                                                            type: 'string',
-                                                                            min: 3,
-                                                                        },
-                                                                    ]}>
-                        <Input placeholder="Name" />
-                    </Form.Item>
-                    <Form.Item label="Price">
-                        <Form.Item name="price" noStyle>
-                            <InputNumber min={0} style={{width: "100%"}} rules={[{required: true}]} />
+                <Card 
+                    title={<h4 className="text-center m-0" style={{color: "#1890ff"}}> Edit Product </h4> }
+                    bordered={false} 
+                    style={{ width: 500 }} 
+                    className="m-auto"
+                >
+                    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}
+                            onFinishFailed={onFinishFailed}
+                            initialValues= {{
+                                name: product.name,
+                                price: product.price,
+                                quantity: product.quantity,
+                                description: product.description
+                            }} >
+                        <Form.Item 
+                            name="image" 
+                            label="Image"
+                            labelAlign="left" 
+                            /* rules={[
+                                {
+                                    required: true,
+                                }
+                            ]} */
+                        >
+                            <input type={"file"} name="image" onChange={changeHandler} />
                         </Form.Item>
-                    </Form.Item>
-                    <Form.Item label="Quantity">
-                        <Form.Item name="quantity" noStyle>
-                            <InputNumber min={1} style={{width: "100%"}} rules={[{required: true}]} />
+                        <Form.Item 
+                            name="name" 
+                            label="Product name"
+                            labelAlign="left" 
+                            rules={[
+                                {
+                                    required: true,
+                                },
+                                {
+                                    type: 'string',
+                                    min: 3,
+                                },
+                            ]}
+                            validateTrigger="onBlur"
+                        >
+                            <Input placeholder="Name" name="name" onChange={changeHandler} style={{width: 250}} />
                         </Form.Item>
-                    </Form.Item>
-                    <Form.Item name="description" label="Description" rules={[
-                                                                            {
-                                                                                required: true,
-                                                                            },
-                                                                            {
-                                                                                type: 'string',
-                                                                                min: 6,
-                                                                            },
-                                                                        ]}>
-                        <Input placeholder="Description" />
-                    </Form.Item>
+                        <Form.Item
+                            label="Price"
+                            labelAlign="left"
+                            name="price"
+                            rules={[
+                                {
+                                    required: true,
+                                },
+                                {
+                                    pattern: /^[1-9][0-9]*$/,
+                                    message: "'quantity' should contain just number, greater than 0",
+                                }
+                            ]}
+                            validateTrigger="onBlur"
+                        >
+                            <Input placeholder="Price" name="price" onChange={changeHandler} style={{width: 250}} />
+                        </Form.Item>
+                        <Form.Item
+                            label="Quantity"
+                            labelAlign="left"
+                            name="quantity"
+                            rules={[
+                                {
+                                    required: true,
+                                },
+                                {
+                                    pattern: /^[1-9][0-9]*$/,
+                                    message: "'quantity' should contain just number, greater than 0",
+                                }
+                            ]}
+                            validateTrigger="onBlur"
+                        >
+                            <Input placeholder="Quantity" name="quantity" onChange={changeHandler} style={{width: 250}} />
+                        </Form.Item>
+                        <Form.Item 
+                            name="description" 
+                            label="Description" 
+                            labelAlign="left"
+                            rules={[
+                                {
+                                    required: true,
+                                },
+                                {
+                                    type: 'string',
+                                    min: 6,
+                                },
+                            ]}
+                            validateTrigger="onBlur"
+                        >
+                            <Input placeholder="Description" name="description" onChange={changeHandler} style={{width: 250}} />
+                        </Form.Item>
 
-                    <Form.Item style={{
-                            display:"flex",
-                            justifyContent: "space-around"
-                        }} >
-                        <Button type="primary" htmlType="submit">
-                            Submit
-                        </Button>
-                        <Button htmlType="button" onClick={onReset} className="float-end">
-                            Reset
-                        </Button>
-                    </Form.Item>
-                </Form>
+                        <Form.Item style={{
+                                display:"flex",
+                                justifyContent: "space-around"
+                            }} >
+                            <Button type="primary" htmlType="submit" className="w-100">
+                                Submit
+                            </Button>
+                            {/* <Button htmlType="button" onClick={onReset} className="float-end">
+                                Reset
+                            </Button> */}
+                        </Form.Item>
+                    </Form>
+                </Card>
 
             </div>
         )
@@ -102,7 +180,7 @@ let EditProduct = () => {
             <div className="container text-center">
                 <h4 style={{
                         marginTop: "30vh",
-                        color: "#003a8c"
+                        color: "#1890ff"
                     }}> 
                     Loading.............. <LoadingOutlined />
                 </h4>

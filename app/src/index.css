@@ -18,5 +18,6 @@ code {
 }
 
 thead th {
-  background-color: #efdbff !important;
+  background-color: #bae7ff !important;
+  color: rgb(94, 94, 94) !important;
 }

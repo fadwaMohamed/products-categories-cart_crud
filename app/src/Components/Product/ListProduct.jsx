@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import productCrud from './../../Models/ProductModel';
-import { Table } from 'antd';
+import { Table, Modal } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+
+const { confirm } = Modal;
 
 
 let ProductList = () => {
@@ -25,7 +28,7 @@ let ProductList = () => {
                 );},
         },
         {
-          title: 'Name',
+          title: 'Product',
           dataIndex: 'name',
           sorter: {
             compare: (a, b) => {{
@@ -87,11 +90,22 @@ let ProductList = () => {
                             Details
                         </Link>
                         <input type={"button"} className="btn btn-outline-danger btn-sm" value="Delete"
-                            onClick={() => deleteProduct(item.id)} />
+                            /* onClick={() => deleteProduct(item.id)} */ onClick={() => showPromiseConfirm(item.id)} />
                     </div>
                 );},
         }
     ];
+
+    function showPromiseConfirm(id) {
+        confirm({
+          title: 'Do you want to delete this product?',
+          icon: <ExclamationCircleOutlined />,
+          onOk() {
+            deleteProduct(id)
+          },
+          onCancel() {},
+        });
+      }
       
     /////////////////////////////////////////////////////////
 
@@ -111,7 +125,6 @@ let ProductList = () => {
     let [productList, setProductList] = useState([]);
 
     useEffect(() => {
-        console.log("f")
         GetProducts();
     }, []);
 

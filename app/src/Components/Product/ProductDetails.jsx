@@ -43,12 +43,12 @@ let DetailsProduct = () => {
                 >
                     <Meta
                         /* title= {<h4 className="text-center" style={{color: "#003a8c"}}> {product.name.charAt(0).toUpperCase() + product.name.slice(1)} </h4> */
-                        title= {<h4 className="text-center" style={{color: "#003a8c"}}> {product.name} </h4> }
+                        title= {<h4 className="text-center" style={{color: "#1890ff"}}> {product.name} </h4> }
                         description= {
                             <>
                                 <h6> {product.description} </h6> 
-                                <h6> EGP <span className="fs-4" style={{color: "#003a8c"}}>{product.price}</span> </h6>
-                                <h6> Available <span className="fs-5" style={{color: "#003a8c"}}>{product.quantity}</span> pieces</h6>
+                                <h6> EGP <span className="fs-4" style={{color: "#1890ff"}}>{product.price}</span> </h6>
+                                <h6> Available <span className="fs-5" style={{color: "#1890ff"}}>{product.quantity}</span> pieces</h6>
                             </>
                         }
     
@@ -62,7 +62,7 @@ let DetailsProduct = () => {
             <div className="container text-center">
                 <h4 style={{
                         marginTop: "30vh",
-                        color: "#003a8c"
+                        color: "#1890ff"
                     }}> 
                     Loading.............. <LoadingOutlined />
                 </h4>
