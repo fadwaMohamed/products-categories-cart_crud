@@ -24,7 +24,7 @@ let product = () => {
                         }
                     />
                     <Route
-                        path="/details/:id"
+                        path="/details/:id/*"
                         element={
                             <Details   
                             />

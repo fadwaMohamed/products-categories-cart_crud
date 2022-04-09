@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { Route, Routes, useParams, useNavigate } from 'react-router-dom';
 import productCrud from './../../Models/ProductModel';
+import AddToCart from './../Cart/AddProductToCart';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 const { Meta } = Card;
@@ -9,6 +10,7 @@ const { Meta } = Card;
 let DetailsProduct = () => {
 
     let {id}  = useParams();
+    let navigate  = useNavigate();
 
     let [product, setProduct] = useState(null);
 
@@ -38,11 +40,10 @@ let DetailsProduct = () => {
                         />
                     }
                     actions={[
-                    <button className="btn btn-warning">Add to cart</button>
+                        <button className="btn btn-warning" onClick={() => navigate(`../details/${product.id}/addToCart`)}>Add to cart</button>
                     ]}
                 >
                     <Meta
-                        /* title= {<h4 className="text-center" style={{color: "#003a8c"}}> {product.name.charAt(0).toUpperCase() + product.name.slice(1)} </h4> */
                         title= {<h4 className="text-center" style={{color: "#1890ff"}}> {product.name} </h4> }
                         description= {
                             <>
@@ -54,6 +55,9 @@ let DetailsProduct = () => {
     
                     />
                 </Card>
+                <Routes>
+                    <Route path="/addToCart" element={<AddToCart />} />
+                </Routes>
             </div>
         )
     }

@@ -20,8 +20,6 @@ let ProductsCrud = {
         .then((data) => data.json())
         .then((res) => console.log("Saved"))
         .catch((err) => console.log("error"))
-
-        return ProductsCrud.GetAll();
     },
 
     Update: (product) => {
@@ -41,7 +39,10 @@ let ProductsCrud = {
         fetch(URL + `/${id}`, {
             method: "DELETE"
         })
-        .then((res) => console.log("Deleted"))
+        .then((res) => {
+            console.log("Deleted")
+            return fetch(URL);
+        })
         .catch((err) => console.log("error"))
     }
 }

@@ -1,4 +1,4 @@
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ListCategory from "./ListCategory";
 import Details from "./CategoryDetails";
 import Add from "./CategoryAdd";

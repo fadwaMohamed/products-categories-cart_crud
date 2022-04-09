@@ -10,23 +10,6 @@ const { confirm } = Modal;
 let CategoryList = () => {
 
     const columns = [
-        /* {
-            title: 'Image',
-            dataIndex: 'image',
-            render: (text, item) => {
-                return (
-                    <div>
-                        <img 
-                            style={{
-                                width: 50,
-                                height: 50,
-                                borderRadius: "50%"
-                            }}
-                            src={item.image instanceof File? URL.createObjectURL(item.image) : item.image}
-                        />   
-                    </div>
-                );},
-        }, */
         {
           title: 'Category',
           dataIndex: 'name',

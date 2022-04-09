@@ -13,6 +13,7 @@ let ProductList = () => {
         {
             title: 'Image',
             dataIndex: 'image',
+            key: "image",
             render: (text, item) => {
                 return (
                     <div>
@@ -30,6 +31,7 @@ let ProductList = () => {
         {
           title: 'Product',
           dataIndex: 'name',
+          key: "name",
           sorter: {
             compare: (a, b) => {{
                 if ( a.name < b.name ) return -1;
@@ -41,6 +43,7 @@ let ProductList = () => {
         {
           title: 'Price',
           dataIndex: 'price',
+          key: "price",
           sorter: {
             compare: (a, b) => a.price - b.price,
           },
@@ -48,6 +51,7 @@ let ProductList = () => {
         {
           title: 'Quantity',
           dataIndex: 'quantity',
+          key: "quantity",
           sorter: {
             compare: (a, b) => a.quantity - b.quantity,
           },
@@ -55,6 +59,7 @@ let ProductList = () => {
         {
           title: 'Description',
           dataIndex: 'description',
+          key: "description",
           sorter: {
             compare: (a, b) => {{
                 if ( a.description < b.description ) return -1;
@@ -66,6 +71,7 @@ let ProductList = () => {
         {
             title: 'Actions',
             dataIndex: 'actions',
+            key: "actions",
             fixed: "right",
             width: 220,
             render: (text, item) => {
@@ -90,7 +96,7 @@ let ProductList = () => {
                             Details
                         </Link>
                         <input type={"button"} className="btn btn-outline-danger btn-sm" value="Delete"
-                            /* onClick={() => deleteProduct(item.id)} */ onClick={() => showPromiseConfirm(item.id)} />
+                            onClick={() => showPromiseConfirm(item.id)} />
                     </div>
                 );},
         }
@@ -138,7 +144,7 @@ let ProductList = () => {
                 Add Product
             </Link>
             
-            <Table columns={columns} dataSource={productList} scroll={{ y: 300, x: 600 }} />
+            <Table columns={columns} /* rowKey="id" */ dataSource={productList} scroll={{ y: 300, x: 600 }} />
         </div>
     )
 }

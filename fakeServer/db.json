@@ -3,25 +3,9 @@
     {
       "id": 520,
       "name": "violin",
-      "price": "22",
-      "quantity": 20,
+      "price": "21",
+      "quantity": "100",
       "image": "../images/3.jpg",
-      "description": "this is my product"
-    },
-    {
-      "id": 456,
-      "name": "table",
-      "price": 200,
-      "quantity": 20,
-      "image": "../images/4.jpg",
-      "description": "this is my product"
-    },
-    {
-      "id": 320,
-      "name": "ring",
-      "price": 154,
-      "quantity": 20,
-      "image": "../images/5.jpg",
       "description": "this is my product"
     },
     {
@@ -179,19 +163,28 @@
   ],
   "Cart": [
     {
-      "order": [
-        {
-          "productname": "ball",
-          "quantity": 2,
-          "price": 240
-        },
-        {
-          "productname": "violin",
-          "quantity": 1,
-          "price": 4500
-        }
-      ],
-      "totalprice": 4740
+      "id": 23,
+      "productname": "ball",
+      "quantity": 15,
+      "price": 240
+    },
+    {
+      "id": 20,
+      "productname": "violin",
+      "quantity": 1,
+      "price": 4500
+    },
+    {
+      "id": 520,
+      "productname": "violin",
+      "quantity": 16,
+      "price": 84
+    },
+    {
+      "id": 50,
+      "productname": "violin",
+      "quantity": 4,
+      "price": 13500
     }
   ]
 }

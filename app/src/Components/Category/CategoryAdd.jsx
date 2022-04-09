@@ -18,7 +18,6 @@ let AddCategory = () => {
         id: "",
         name: "",
         description: "",
-        //image: ""
     });
 
     let Navigate = useNavigate();
@@ -61,18 +60,14 @@ let AddCategory = () => {
     }; */
 
     const changeHandler = (e) => {
-        /* if(e.target.name == "image")
-            newCategory[e.target.name] = e.target.files[0];
-        else */ 
-            setCategory({ ...category, [e.target.name]: e.target.value });
-        console.log(category)
+        setCategory({ ...category, [e.target.name]: e.target.value });
     }
 
     return(
         <div className="container mt-2">
 
             <Card 
-                title={<h4 className="text-center m-0" style={{color: "#1890ff"}}> Edit Category </h4> }
+                title={<h4 className="text-center m-0" style={{color: "#1890ff"}}> Add new category </h4> }
                 bordered={false} 
                 style={{ width: 500 }} 
                 className="m-auto"
@@ -80,18 +75,6 @@ let AddCategory = () => {
                 <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}
                         onFinishFailed={onFinishFailed}
                         >
-                    {/* <Form.Item 
-                        name="image" 
-                        label="Image"
-                        labelAlign="left" 
-                        rules={[
-                            {
-                                required: true,
-                            }
-                        ]}
-                    >
-                        <input type={"file"} name="image" onChange={changeHandler} />
-                    </Form.Item> */}
                     <Form.Item 
                         name="name" 
                         label="Category name"

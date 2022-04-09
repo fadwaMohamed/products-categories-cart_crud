@@ -1,7 +1,7 @@
-import React, { cloneElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import productCrud from './../../Models/ProductModel';
-import { LoadingOutlined, UploadOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Form, Input, Button, message, Card } from 'antd';
 
 const layout = {

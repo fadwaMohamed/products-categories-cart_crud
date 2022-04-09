@@ -27,16 +27,6 @@ let DetailsCategory = () => {
                 <Card
                     className="m-auto"
                     style={{ width: 300, color: "#595959" }}
-                    /* cover={
-                        <img
-                            alt="example"
-                            src={category.image instanceof File? URL.createObjectURL(category.image) : "../" + category.image}
-                            style= {{
-                                width:300,
-                                height:200,
-                            }}
-                        />
-                    } */
                 >
                     <Meta
                         title= {<h4 className="text-center" style={{color: "#1890ff"}}> {category.name} </h4> }

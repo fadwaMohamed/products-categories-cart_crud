@@ -1,7 +1,7 @@
-import React, { cloneElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import categoryCrud from './../../Models/CategoryModel';
-import { LoadingOutlined, UploadOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Form, Input, Button, message, Card } from 'antd';
 
 const layout = {
@@ -53,10 +53,7 @@ let EditCategory = () => {
     }; */
 
     const changeHandler = (e) => {
-        /* if(e.target.name == "image")
-            setCategory({ ...category, [e.target.name]: e.target.files[0] });
-        else */
-            setCategory({ ...category, [e.target.name]: e.target.value });
+        setCategory({ ...category, [e.target.name]: e.target.value });
     }
 
     if(category) {
@@ -75,13 +72,6 @@ let EditCategory = () => {
                                 name: category.name,
                                 description: category.description
                             }} >
-                        {/* <Form.Item 
-                            name="image" 
-                            label="Image"
-                            labelAlign="left" 
-                        >
-                            <input type={"file"} name="image" onChange={changeHandler} />
-                        </Form.Item> */}
                         <Form.Item 
                             name="name" 
                             label="Category name"

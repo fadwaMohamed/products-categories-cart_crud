@@ -74,7 +74,7 @@ let AddProduct = () => {
         <div className="container mt-2">
 
             <Card 
-                title={<h4 className="text-center m-0" style={{color: "#1890ff"}}> Edit Product </h4> }
+                title={<h4 className="text-center m-0" style={{color: "#1890ff"}}> Add new product </h4> }
                 bordered={false} 
                 style={{ width: 500 }} 
                 className="m-auto"
