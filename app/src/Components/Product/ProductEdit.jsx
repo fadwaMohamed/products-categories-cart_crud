@@ -52,9 +52,26 @@ let EditProduct = () => {
         console.log(product)
     }; */
 
+    let getBase64 = (file, cb) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            cb(reader.result)
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
+    }
+
     const changeHandler = (e) => {
         if(e.target.name == "image")
-            setProduct({ ...product, [e.target.name]: e.target.files[0] });
+        {
+            let imageBase64 = '';
+            getBase64(e.target.files[0], (result) => {
+                imageBase64 = result;
+                setProduct({ ...product, [e.target.name]: imageBase64 });
+            });
+        }
         else
             setProduct({ ...product, [e.target.name]: e.target.value });
     }
@@ -86,7 +103,7 @@ let EditProduct = () => {
                                     required: true,
                                 }
                             ]} */
-                        >
+                        > 
                             <input type={"file"} name="image" onChange={changeHandler} />
                         </Form.Item>
                         <Form.Item 

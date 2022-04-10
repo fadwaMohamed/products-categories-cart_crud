@@ -23,7 +23,10 @@ let DetailsCategory = () => {
 
     if(category) {
         return(
-            <div className="container mt-2">
+            <div className="container mt-2"
+                style={{
+                    paddingTop: "25vh"
+                }}>
                 <Card
                     className="m-auto"
                     style={{ width: 300, color: "#595959" }}

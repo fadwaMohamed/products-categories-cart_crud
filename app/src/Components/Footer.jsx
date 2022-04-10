@@ -3,7 +3,7 @@ import React from "react";
 let Footer = () => {
     return (
         <>
-            <footer className="text-center fixed-bottom bg-light" style={{zIndex: -2}}>
+            <footer className="text-center fixed-bottom bg-light" style={{zIndex: 2}}>
                 <div className="container p-3">
                     <section>
                         <div

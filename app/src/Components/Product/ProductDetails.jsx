@@ -32,7 +32,7 @@ let DetailsProduct = () => {
                     cover={
                         <img
                             alt="example"
-                            src={product.image instanceof File? URL.createObjectURL(product.image) : "../" + product.image}
+                            src={product.image.startsWith("data:")? product.image : "../" + product.image}
                             style= {{
                                 width:300,
                                 height:200,

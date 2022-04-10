@@ -21,3 +21,7 @@ thead th {
   background-color: #bae7ff !important;
   color: rgb(94, 94, 94) !important;
 }
+
+*:not(.btn, tr) {
+  border-color: #bae7ff !important;
+}

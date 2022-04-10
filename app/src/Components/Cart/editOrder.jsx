@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import productCrud from './../../Models/ProductModel';
 import cartCrud from './../../Models/CartModel';
 import { message, Modal, Select } from 'antd';
 const { Option } = Select;
 
 
-const Addtocart = ({ getOrders }) => {
+const Addtocart = () => {
 
     let {id}  = useParams();
     let navigate  = useNavigate()
-    let location  = useLocation()
 
     let [product, setProduct] = useState(null);
     let [order, setOrder] = useState(null);
@@ -44,10 +43,6 @@ const Addtocart = ({ getOrders }) => {
                 else {
                     cartCrud.AddOrder(order);
                 }
-                if(location.pathname.startsWith("/cart/addToCart"))
-                {
-                    setTimeout(getOrders, 100);
-                }
             }
         }
     }, [order])
@@ -57,7 +52,8 @@ const Addtocart = ({ getOrders }) => {
         {
             if(order)
             {
-                setOrder({ ...order, ["quantity"]: selectedQuantity, ["price"]: product.price * selectedQuantity });
+                let newQuantity = order.quantity + selectedQuantity
+                setOrder({ ...order, ["quantity"]: newQuantity, ["price"]: product.price * newQuantity });
             }
             else 
             {
@@ -81,7 +77,7 @@ const Addtocart = ({ getOrders }) => {
     };
 
     const changeHandle = (val) => {
-        // to use seconed useEffect in updates only
+        // use seconed useEffect in updates only
         isInitialMount.current = false;
         selectedQuantity = val;
     }

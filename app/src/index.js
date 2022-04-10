@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
+import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/js/bootstrap";
+//import 'bootstrap/dist/js/bootstrap.bundle';
+//import "jquery/dist/jquery";
 import "@fortawesome/fontawesome-free/css/all.css";
 import 'antd/dist/antd.css';
 

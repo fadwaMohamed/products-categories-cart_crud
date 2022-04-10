@@ -23,7 +23,7 @@ let ProductList = () => {
                                 height: 50,
                                 borderRadius: "50%"
                             }}
-                            src={item.image instanceof File? URL.createObjectURL(item.image) : item.image}
+                            src={item.image}
                         />   
                     </div>
                 );},
@@ -144,7 +144,7 @@ let ProductList = () => {
                 Add Product
             </Link>
             
-            <Table columns={columns} /* rowKey="id" */ dataSource={productList} scroll={{ y: 300, x: 600 }} />
+            <Table columns={columns} dataSource={productList} scroll={{ y: 300, x: 600 }} />
         </div>
     )
 }
