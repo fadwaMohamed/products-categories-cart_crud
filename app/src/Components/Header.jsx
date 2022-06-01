@@ -1,56 +1,57 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, Collapse } from 'reactstrap';
+import {
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  NavItem,
+  Collapse,
+} from "reactstrap";
 
 let Header = () => {
-    return(
-        <>
-            <div>
-                <Navbar
-                    color="light"
-                    expand="md"
-                    fixed="top"
-                    light
-                >
-                    <NavbarBrand>
-                        <i 
-                            className="fab fa-react fs-1 mx-2"
-                            style={{
-                                color: "#61DBFB"
-                            }}
-                        />                    
-                    </NavbarBrand>
-                    <NavbarToggler onClick={function noRefCheck(){}} />
-                    <Collapse navbar>
-                        <Nav
-                            className="me-auto"
-                            navbar
-                        >
-                            <NavItem>
-                                <Link className="nav-link" aria-current="page" to="/products">
-                                    Products</Link>    
-                            </NavItem>
-                            <NavItem>
-                                <Link className="nav-link" to="/categories">Categories</Link>
-                            </NavItem>
-                            <NavItem>
-                                <Link className="nav-link" to="/cart">
-                                    <i className="fas fa-shopping-cart mx-2"></i>
-                                    Cart
-                                </Link>
-                            </NavItem>
-                            <NavItem>
-                                <Link className="nav-link" aria-current="page" to="/signIn">
-                                    <i className="fas fa-user mx-2"></i>
-                                    Sign in
-                                </Link>
-                            </NavItem>
-                            
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-            </div>
-            {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{zIndex: -2}}>
+  return (
+    <>
+      <div>
+        <Navbar color="light" expand="md" fixed="top" light>
+          <NavbarBrand>
+            <i
+              className="fab fa-react fs-1 mx-2"
+              style={{
+                color: "#61DBFB",
+              }}
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={function noRefCheck() {}} />
+          <Collapse navbar>
+            <Nav className="me-auto" navbar>
+              <NavItem>
+                <Link className="nav-link" aria-current="page" to="/products">
+                  Products
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link" to="/categories">
+                  Categories
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link" to="/cart">
+                  <i className="fas fa-shopping-cart mx-2"></i>
+                  Cart
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link" aria-current="page" to="/signIn">
+                  <i className="fas fa-user mx-2"></i>
+                  Sign in
+                </Link>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{zIndex: -2}}>
                 <div className="container-fluid">
                     <i 
                         className="fab fa-react navbar-brand fs-1 mx-2"
@@ -87,8 +88,8 @@ let Header = () => {
                     </div>
                 </div>
             </nav> */}
-        </>
-    );
-}
+    </>
+  );
+};
 
 export default Header;
